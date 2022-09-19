@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_app_margin">16dp</dimen>
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="edit_text_height">50dp</dimen>
+    <dimen name="standard_app_padding">16dp</dimen>
+</resources>

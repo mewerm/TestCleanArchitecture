@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Test Clean Architecture</string>
+    <string name="no_data">No data</string>
+    <string name="get_data">Get data</string>
+    <string name="hint_in_edit_text">Put data here</string>
+    <string name="save_data">Save data</string>
+</resources>
