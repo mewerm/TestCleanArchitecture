@@ -2,6 +2,7 @@ package com.maximmesh.testcleanarchitecture.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.maximmesh.testcleanarchitecture.data.repository.UserRepositoryImpl
 import com.maximmesh.testcleanarchitecture.databinding.ActivityMainBinding
 import com.maximmesh.testcleanarchitecture.domain.models.SaveUserNameParam
 import com.maximmesh.testcleanarchitecture.domain.models.UserName
@@ -12,8 +13,9 @@ class MainActivity : AppCompatActivity() {
 
     //пока примитивно, без dagger или hint. Простота и примитив для лучшего понимания.
     // +Просто вот он доступ из слоя presentation к классам, которые решают бизнес-логику
-    private val getUserNameUseCase = GetUserNameUseCase()
-    private val saveUserNameUseCase = SaveUserNameUseCase()
+    private val userRepository by lazy(LazyThreadSafetyMode.NONE) { UserRepositoryImpl(context = applicationContext) }
+    private val getUserNameUseCase by lazy(LazyThreadSafetyMode.NONE) { GetUserNameUseCase(userRepository = userRepository) }
+    private val saveUserNameUseCase by lazy(LazyThreadSafetyMode.NONE) { SaveUserNameUseCase(userRepository = userRepository) }
 
     private lateinit var binding: ActivityMainBinding
 

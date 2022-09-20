@@ -1,10 +1,11 @@
 package com.maximmesh.testcleanarchitecture.domain.usecase
 
 import com.maximmesh.testcleanarchitecture.domain.models.UserName
+import com.maximmesh.testcleanarchitecture.domain.repository.UserRepository
 
-class GetUserNameUseCase {
+class GetUserNameUseCase(private val userRepository: UserRepository) {
 
     fun execute(): UserName {
-     return UserName(firstName = "Иван", lastName = "Иванович") //хардкор
+        return userRepository.getName()
     }
 }
